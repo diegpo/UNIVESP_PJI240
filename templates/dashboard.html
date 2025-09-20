@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atrium Residencial Club</title>
+
+    <!-- CSS do dashboard -->
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+
+    <!-- Font Awesome para ícones -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Menu</h2>
+
+      <div class="menu-item has-submenu">
+        <a href="#" class="menu-link"
+          ><i class="fa-solid fa-users"></i> Cadastros</a
+        >
+        <div class="submenu">
+          <a href="#"><i class="fa-solid fa-user"></i> Moradores</a>
+          <a href="#"><i class="fa-solid fa-car"></i> Veículos</a>
+          <a href="#"><i class="fa-solid fa-briefcase"></i> Funcionários</a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <a href="#" class="menu-link"
+          ><i class="fa-solid fa-box"></i> Encomendas</a
+        >
+        <div class="submenu">
+          <a href="#"><i class="fa-solid fa-truck"></i> Registrar Entrega</a>
+          <a href="#"><i class="fa-solid fa-bell"></i> Enviar Avisos</a>
+          <a href="#"><i class="fa-solid fa-envelope"></i> Enviar Mensagem</a>
+        </div>
+      </div>
+
+      <div class="menu-item disabled">
+        <a href="#"><i class="fa-solid fa-money-bill"></i> Financeiro</a>
+      </div>
+      <div class="menu-item disabled">
+        <a href="#"><i class="fa-solid fa-tools"></i> Manutenção</a>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <a href="#" class="menu-link"
+          ><i class="fa-solid fa-bell-exclamation"></i> Alertas e Avisos</a
+        >
+        <div class="submenu">
+          <a href="#"><i class="fa-solid fa-plus"></i> Cadastrar Novo Alerta</a>
+        </div>
+      </div>
+
+      <!-- Logout via POST (mais seguro) -->
+      <form method="post" action="{% url 'sair' %}" class="logout">
+        {% csrf_token %}
+        <button type="submit">
+          <i class="fa-solid fa-right-from-bracket"></i> Sair
+        </button>
+      </form>
+    </div>
+
+    <div class="main">
+      <h1>Atrium Residencial Club</h1>
+      <div class="datetime" id="datetime"></div>
+      <div class="cards">
+        <div class="card">Aviso 1</div>
+        <div class="card">Aviso 2</div>
+        <div class="card">Aviso 3</div>
+      </div>
+    </div>
+
+    <!-- JS externo -->
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

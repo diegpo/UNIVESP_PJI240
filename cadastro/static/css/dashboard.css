@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: #fff;
+    position: fixed;
+    height: 100%;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.sidebar a, .submenu a {
+    padding: 12px 20px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sidebar a:hover, .submenu a:hover {
+    background: #3d566e;
+    border-radius: 5px;
+}
+
+.menu-item { position: relative; cursor: pointer; }
+.menu-item.disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Submenus */
+.submenu {
+    display: none;
+    flex-direction: column;
+    background: #34495e;
+}
+
+/* Logout */
+.logout {
+    padding: 0; /* remove padding do form */
+}
+
+.logout button {
+    width: 100%;
+    padding: 10px 15px;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    text-align: left;
+    transition: background 0.3s;
+}
+
+.logout button:hover {
+    background-color: #c0392b;
+}
+
+
+.logout:hover { background: #e74c3c; border-radius: 5px; }
+
+/* Main content */
+.main {
+    margin-left: 250px;
+    padding: 40px;
+    flex: 1;
+    min-height: 100vh;
+    background: #f0f2f5;
+}
+
+.main h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.datetime {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* Responsivo */
+@media (max-width: 1024px) { .sidebar { width: 220px; } .main { margin-left: 220px; padding: 30px; } }
+@media (max-width: 768px) { .sidebar { width: 200px; } .main { margin-left: 200px; padding: 20px; } .cards { flex-direction: column; align-items: center; } }
+@media (max-width: 480px) {
+    .sidebar { position: relative; width: 100%; height: auto; flex-direction: row; overflow-x: auto; }
+    .sidebar a, .submenu a { paddin
